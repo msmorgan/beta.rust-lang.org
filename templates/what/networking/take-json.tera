@@ -1,3 +1,4 @@
+{%- raw -%}
 #[derive(FromForm)]
 struct Task { name: String, completed: bool }
 
@@ -11,3 +12,4 @@ fn new(task: Form<Task>) -> Flash<Redirect> {
             "Task added.")
     }
 }
+{%- endraw -%}

@@ -1,0 +1,106 @@
+{% extends "layout" %}
+{% block page %}
+
+{% set info = data.info[0] %}
+
+<header class="mt3 mt2-ns mb4 mb5-ns tc tl-ns">
+  <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+    <h1>{{ info.name }}</h1>
+  </div>
+</header>
+
+<section id="team-info" class="purple">
+  <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+    <p><b>{{ info.description }}</b></p>
+    {% if info.chat %}<p><b>Chat Channel</b>: {{ info.chat }}</p>{% endif %}
+    {% if info.repo %}<p><a href="{{ info.repo }}" class="button button-secondary">Team GitHub</a></p>{% endif %}
+    {% if info.email %}<p><a href="mailto:{{ info.email }}" class="button button-secondary">Email the Team</a></p>{% endif %}
+    <div class="row">
+      <h2>Members</h2>
+      {% for lead in info.leads %}
+        <div class="two columns group-lead group-member">
+          <p class="name">{{ lead }} (Lead)</p>
+          <img src="https://avatars.githubusercontent.com/{{ lead }}" />
+        </div>
+      {% endfor %}
+      {% for member in info.members %}
+        <div class="two columns group-member">
+          <p class="name">{{ member }}</p>
+          <img src="https://avatars.githubusercontent.com/{{ member }}" />
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% if data.subteams %}
+<section id="subteams" class="green">
+  <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+    <header>
+      <h2>Subteams</h2>
+      <div class="highlight"></div>
+    </header>
+    <div id="teams">
+      {% for st in data.subteams %}
+      <div class="subteam">
+        <h3>{{ st.name }}</h3>
+        <div id="{{st.name}}-info">
+          <p><b>{{ st.description }}</b></p>
+          {% if st.chat %}<p><b>Chat Channel</b>: {{ st.chat }}</p>{% endif %}
+          {% if st.repo %}<p><a href="{{ st.repo }}" class="button button-secondary">Team GitHub</a></p>{% endif %}
+          {% if st.email %}<p><a href="mailto:{{ st.email }}" class="button button-secondary">Email the Team</a></p>{% endif %}
+        </div>
+        <div id="{{ st.name }}-members">
+          {% for lead in st.leads %}
+            <div class="two columns group-member">
+              <p class="name">{{lead}} (Lead)</p>
+              <img src="https://avatars.githubusercontent.com/{{ lead }}" />
+            </div>
+          {% endfor %}
+          {% for member in st.members %}
+            <div class="two columns group-member">
+              <p class="name">{{ member }}</p>
+              <img src="https://avatars.githubusercontent.com/{{ member }}" />
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if data.subwgs %}
+<section id="subteams" class="red">
+  <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+    <header>
+      <h2>Working Groups</h2>
+      <div class="highlight"></div>
+    </header>
+    <div id="teams">
+      {% for st in data.subwgs %}
+      <div class="subteam">
+        <h3>{{ st.name }}</h3>
+        <div id="{{ st.name }}-info">
+          <p><b>{{ st.description }}</b></p>
+          {% if st.chat %}<p><b>Chat Channel</b>: {{ st.chat }}</p>{% endif %}
+          {% if st.repo %}<p><a href="{{ st.repo }}" class="button button-secondary">Team GitHub</a></p>{% endif %}
+          {% if st.email %}<p><a href="mailto:{{ st.email }}" class="button button-secondary">Email the Team</a></p>{% endif %}
+        </div>
+        <div id="{{ st.name }}-leads">
+          {% for lead in st.leads %}
+          <div class="two columns group-member">
+            <p class="name">{{ lead }}</p>
+            <img src="https://avatars.githubusercontent.com/{{ lead }}" />
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% endblock %}

@@ -1,3 +1,4 @@
+{%- raw -%}
 /// Read some lines of a file
 #[derive(Debug, StructOpt)]
 struct Cli {
@@ -7,3 +8,4 @@ struct Cli {
     #[structopt(short = "n")]
     num: i32,
 }
+{%- endraw -%}

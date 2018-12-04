@@ -1,0 +1,14 @@
+{% extends "layout" %}
+{% block page %}
+
+<header class="mt3 mt2-ns mb4 mb5-ns tc tl-ns">
+  <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
+    <h1>Networking</h1>
+  </div>
+</header>
+
+{% include "what/networking/pitch" %}
+{% include "what/networking/get-started" %}
+{% include "what/networking/production" %}
+
+{% endblock %}

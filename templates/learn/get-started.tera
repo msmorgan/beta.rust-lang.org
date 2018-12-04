@@ -1,4 +1,5 @@
-{{#*inline "page"}}
+{% extends "layout" %}
+{% block page %}
 
 <header class="mt3 mt2-ns mb4 mb5-ns tc tl-ns">
   <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
@@ -16,7 +17,7 @@
     <h3><code>rustup</code>: the Rust installer and version management tool</h3>
     <p>The primary way that folks install Rust is through a tool called <code>rustup</code> which is a Rust installer
       and version management tool.</p>
-    {{> tools/rustup }}
+    {% include "tools/rustup" %}
     <br /><br />
     <a href="/tools/install" class="button button-secondary">Learn more about installation</a>
     <hr />
@@ -37,7 +38,7 @@
     <hr />
     <h3>Other tools</h3>
     <p>Rust support is available in many editors:</p>
-    {{> tools/editors }}
+    {% include "tools/editors" %}
     <br />
     <p>You can install a code formatting tool (Rustfmt) with <code>rustup component add rustfmt</code>,
       and a linting tool (Clippy) with <code>rustup component add clippy</code>.</p>
@@ -163,6 +164,6 @@ fn main() {
       <img alt="a gif of ferris scurrying side to side" src=/static/images/ferris.gif />
   </div>
 </section>
-{{> tools/install-script }}
-{{/inline}}
-{{~> (parent)~}}
+{% include "tools/install-script" %}
+
+{% endblock %}

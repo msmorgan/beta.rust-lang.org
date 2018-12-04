@@ -1,4 +1,6 @@
-{{#*inline "page"}}
+{% extends "layout" %}
+
+{% block page %}
 <header class="mt3 mt0-ns mb6-ns">
   <div class="container flex flex-column flex-row-l justify-between-l">
     <div class="mw8-l">
@@ -13,16 +15,15 @@
         Get started
       </a>
       <p class="tc f3 f2-l mt3">
-        {{rust_version}}
+        {{ rust_version }}
       </p>
     </div>
   </div>
 </header>
 
-{{> panels/language-values }}
-{{> panels/domains }}
-{{> panels/production }}
-{{> panels/get-involved }}
+{% include "panels/language-values" %}
+{% include "panels/domains" %}
+{% include "panels/production" %}
+{% include "panels/get-involved" %}
 
-{{/inline}}
-{{~> (parent)~}}
+{% endblock %}

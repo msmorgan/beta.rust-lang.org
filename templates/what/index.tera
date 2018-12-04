@@ -1,4 +1,5 @@
-{{#*inline "page"}}
+{% extends "layout" %}
+{% block page %}
 
 <header class="mt3 mt2-ns mb4 mb5-ns tc tl-ns">
   <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
@@ -6,7 +7,6 @@
   </div>
 </header>
 
-{{> panels/domains }}
+{% include "panels/domains" %}
 
-{{/inline}}
-{{~> (parent)~}}
+{% endblock %}

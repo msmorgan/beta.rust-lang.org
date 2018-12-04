@@ -1,5 +1,6 @@
-{{#*inline "page"}}
+{% extends "layout" %}
 
+{% block page %}
 <header class="mt3 mt2-ns mb4 mb5-ns tc tl-ns">
   <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
     <h1>Install Rust</h1>
@@ -12,7 +13,7 @@
       <h2>Using rustup (Recommended)</h2>
       <div class="highlight"></div>
     </header>
-    {{> tools/rustup }}
+    {% include "tools/rustup" %}
   </div>
 </section>
 
@@ -111,7 +112,5 @@
     </p>
   </div>
 </section>
-{{> tools/install-script }}
-
-{{/inline}}
-{{~> (parent)~}}
+{% include "tools/install-script" %}
+{% endblock %}

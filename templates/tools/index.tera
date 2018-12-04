@@ -1,5 +1,6 @@
-{{#*inline "page"}}
+{% extends "layout" %}
 
+{% block page %}
 <header class="mt3 mt2-ns mb4 mb5-ns tc tl-ns">
   <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
     <h1>Tools</h1>
@@ -23,7 +24,7 @@
         <a href="https://github.com/rust-lang-nursery/rls" target="_blank" rel="noopener">Rust Language Server</a>.
       </div>
     </div>
-    {{> tools/editors }}
+    {% include "tools/editors" %}
   </div>
 </section>
 
@@ -130,6 +131,4 @@
     </div>
   </div>
 </section>
-
-{{/inline}}
-{{~> (parent)~}}
+{% endblock %}

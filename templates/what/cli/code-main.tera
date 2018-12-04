@@ -1,3 +1,4 @@
+{%- raw -%}
 use quicli::prelude::*;
 
 fn main() -> CliResult {
@@ -8,3 +9,4 @@ fn main() -> CliResult {
         .for_each(|line| println!("{}", line));
     Ok(())
 }
+{%- endraw -%}

@@ -1,4 +1,5 @@
-{{#*inline "page"}}
+{% extends "layout" %}
+{% block page %}
 
 <header class="mt3 mt2-ns mb4 mb5-ns tc tl-ns">
   <div class="w-100 mw-none ph3 mw8-m mw9-l center f3">
@@ -8,9 +9,9 @@
 
 <section id="users" class="white">
   <div class="container">
-    {{#each data as |user_row| ~}}
+    {% for user_row in data %}
       <div class="flex flex-column flex-row-l flex-wrap-l justify-start tc">
-        {{#each user_row as |u| ~}}
+        {% for u in user_row %}
           <div class="flex flex-column justify-between ba br3 b--black mw-100 w-100-l pa3 ma4 max-width-quarter-l">
             <div class="user-logo">
               <a href="{{ u.url }}" target="_blank" rel="noopener">
@@ -18,13 +19,12 @@
               </a>
             </div>
             <h4 class="f2 fw6">{{ u.name }}</h4>
-            <p>{{{ u.how }}}</p>
+            <p>{{ u.how }}</p>
           </div>
-        {{/each~}}
+        {% endfor %}
       </div>
-    {{/each~}}
+    {% endfor %}
   </div>
 </section>
 
-{{/inline}}
-{{~> (parent)~}}
+{% endblock %}
