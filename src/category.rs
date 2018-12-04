@@ -6,7 +6,7 @@ use rocket::request::FromParam;
 fn is_category(name: &str) -> bool {
     let mut path = PathBuf::from("templates");
     path.push(name);
-    path.push("index.hbs");
+    path.push("index.tera");
     path.exists()
 }
 
